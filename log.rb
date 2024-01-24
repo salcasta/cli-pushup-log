@@ -17,7 +17,7 @@ class Log
       
       when "store"
           log()
-          pushup_entry(@date_month, @date_day, @date_year, @total_pushups, @total_sets, @duration, @best)
+          pushup_entry(@date_month, @date_day, @total_pushups, @total_sets, @duration, @best)
           
 
       when "view"
@@ -34,9 +34,9 @@ class Log
 
   private
 
-  def pushup_entry(date_month, date_day, date_year, total_pushups, total_sets, duration, best)
-    entry = Pushup.new(date_month, date_day, date_year, total_pushups, total_sets, duration, best)
-    @pushups << Pushup.new(date_month, date_day, date_year, total_pushups, total_sets, duration, best)
+  def pushup_entry(date_month, date_day, total_pushups, total_sets, duration, best)
+    entry = Pushup.new(date_month, date_day, total_pushups, total_sets, duration, best)
+    @pushups << Pushup.new(date_month, date_day, total_pushups, total_sets, duration, best)
     puts "#{entry.to_s} has been added."
   end
 
@@ -52,8 +52,6 @@ class Log
     @date_month = gets.chomp.capitalize
     puts "Enter the day (number)."
     @date_day = gets.chomp
-    puts "Enter the year."
-    @date_year = gets.chomp
     puts "Enter the total amount of pushups you have done."
     @total_pushups = gets.chomp
     puts "Enter the total amount of sets you have done."
