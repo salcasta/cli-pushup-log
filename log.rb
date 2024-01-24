@@ -21,7 +21,7 @@ class Log
       
       when "store"
         log()
-        pushup_entry(@date_month, @date_day, @total_pushups, @total_sets, @duration, @best)
+        pushup_entry(@date_month, @date_day, @total_pushups, @total_sets, @duration, @best, @avg, @set_time)
           
       when "view"
         view_log()
@@ -41,21 +41,22 @@ class Log
 
   private
 
-  def pushup_entry(date_month, date_day, total_pushups, total_sets, duration, best)
-    entry = Pushup.new(date_month, date_day, total_pushups, total_sets, duration, best)
+  def pushup_entry(date_month, date_day, total_pushups, total_sets, duration, best, avg, set_time)
+    entry = Pushup.new(date_month, date_day, total_pushups, total_sets, duration, best, avg, set_time)
     @pushups << entry
     puts "\n"
-    puts "Workout has been added."
+    puts "WORKOUT WAS ADDED."
     puts "\n"
   end
 
   def view_log()
     if @pushups.empty?
-        puts "There are no workouts in your log"
+        puts "\n"
+        puts "THERE IS NO WORKOUT IN YOUR LOG"
         puts "\n"
     else
         puts "\n"
-        puts "Workouts in the log:"
+        puts "WORKOUTS IN YOUR LOG:"
         puts "\n"
         @pushups.each do |workout|
           puts workout
@@ -77,6 +78,7 @@ class Log
     @duration = gets.chomp
     puts "Enter the most amount of reps you did in a single set."
     @best = gets.chomp
+    @avg = (@total_pushups.to_i / @total_sets.to_i)
+    @set_time = (@duration.to_i / @total_sets.to_i)
   end
-
 end
