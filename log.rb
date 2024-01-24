@@ -43,8 +43,10 @@ class Log
 
   def pushup_entry(date_month, date_day, total_pushups, total_sets, duration, best)
     entry = Pushup.new(date_month, date_day, total_pushups, total_sets, duration, best)
-    @pushups << Pushup.new(date_month, date_day, total_pushups, total_sets, duration, best)
-    puts "#{entry.to_s} has been added."
+    @pushups << entry
+    puts "\n"
+    puts "Workout has been added."
+    puts "\n"
   end
 
   def view_log()
@@ -52,10 +54,13 @@ class Log
         puts "There are no workouts in your log"
         puts "\n"
     else
+        puts "\n"
         puts "Workouts in the log:"
+        puts "\n"
         @pushups.each do |workout|
           puts workout
         end
+        puts "\n"
     end
   end
 
