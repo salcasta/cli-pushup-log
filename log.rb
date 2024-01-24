@@ -7,25 +7,32 @@ class Log
 
   def main_menu
     puts "Hi! Welcome to your workout log!"
-
+    puts "\n"
     loop do 
-      puts 'Type "store" or "view" to see your past results or to add a new entry.'
+      puts 'Type "store" to add a workout to your log.'
+      puts "\n"
+      puts 'Type "view" to see your past results.'
+      puts "\n"
+      puts 'Type "exit" to close the app.'
 
       task = gets.chomp
 
       case task 
       
       when "store"
-          log()
-          pushup_entry(@date_month, @date_day, @total_pushups, @total_sets, @duration, @best)
+        log()
+        pushup_entry(@date_month, @date_day, @total_pushups, @total_sets, @duration, @best)
           
-
       when "view"
-          view_log()
+        view_log()
+
+      when "exit"
+        puts 'Goodbye!'
         break
 
       else
-        puts 'Try again, remember type "store" to add an entry or type "view" to see your past results.'
+        puts 'Try again, remember type "store" to add a workout, "view" to see your past results, or "exit" to close the app.'
+        puts "\n"
       end
     end
   end
@@ -41,9 +48,14 @@ class Log
   end
 
   def view_log()
-    puts "Workouts in the log:"
-    @pushups.each do |workout|
-      puts workout
+    if @pushups.empty?
+        puts "There are no workouts in your log"
+        puts "\n"
+    else
+        puts "Workouts in the log:"
+        @pushups.each do |workout|
+          puts workout
+        end
     end
   end
 
