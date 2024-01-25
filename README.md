@@ -1,5 +1,14 @@
-# ruby-cli-template
+# Pushup Log CLI
 
-Use this repository as a template for your Ruby CLI (command line interface) project.
+They say all you need to do to gain muscle is to do pushups.
 
-- Ruby version: `3.2.1`
+Here is a log to help you keep track of how many pushups you are doing. 
+
+Type "store" to add an entry and follow the prompts
+Type "view" to view your past workouts 
+
+## Usage 
+Run `ruby app.rb` in the terminal to launch.
+
+## Warning
+This is not for long term use as once the app is closed your information will be deleted 
