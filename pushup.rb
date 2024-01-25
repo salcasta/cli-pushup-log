@@ -1,5 +1,5 @@
 class Pushup
-  attr_accessor :date_month, :date_day, :total_pushups, :total_sets, :duration, :best
+  attr_accessor :date_month, :date_day, :total_pushups, :total_sets, :duration, :best, :avg, :set_time
 
   def initialize(date_month, date_day, total_pushups, total_sets, duration, best, avg, set_time)
     @date_month = date_month
